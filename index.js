@@ -4,7 +4,6 @@ const multer = require('multer');
 const cors = require('cors');  // Import CORS
 
 const app = express();
-const port = 3000;
 
 // Enable CORS for all routes
 app.use(cors());
@@ -68,7 +67,5 @@ app.get('/bfhl', (req, res) => {
     res.status(200).json({ operation_code: 1 });
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Backend running on port ${port}`);
-});
+// Export the app to be used as a serverless function
+module.exports = app;
